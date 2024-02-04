@@ -35,13 +35,15 @@ import { ShepherdService } from '../../features/shepherd/shepherd.service';
 import { getGithubErrorUrl } from 'src/app/core/error-handler/global-error-handler.util';
 import { IS_MOUSE_PRIMARY } from '../../util/is-mouse-primary';
 import { OpenaiService } from '../../openai.service';
+import { swirlAnimation } from '../../ui/animations/swirl-in-out.ani';
+
 
 @Component({
   selector: 'side-nav',
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [standardListAnimation, expandFadeAnimation],
+  animations: [standardListAnimation, expandFadeAnimation, swirlAnimation],
 })
 export class SideNavComponent implements OnDestroy {
   @ViewChildren('menuEntry') navEntries?: QueryList<MatMenuItem>;
@@ -86,6 +88,8 @@ export class SideNavComponent implements OnDestroy {
   private keyManager?: FocusKeyManager<MatMenuItem>;
   private _subs: Subscription = new Subscription();
   private _cachedIssueUrl?: string;
+
+  assistantMessage: string = '你好，我是AI助手！';
 
   constructor(
     public readonly tagService: TagService,
@@ -281,16 +285,17 @@ export class SideNavComponent implements OnDestroy {
 
   userInput: string = '';
   openPrompt(): void {
-    this._openaiService.sendTextToOpenai(this.userInput).subscribe(
-      (response) => {
-        alert(`OpenAI 的回应: ${response}`);
-        this.userInput = '';
-      },
-      (error) => {
-        console.error('OpenAI 请求失败:', error);
-        // 处理错误情况
-      },
-    );
+    this.assistantMessage = this.userInput;
+    // this._openaiService.sendTextToOpenai(this.userInput).subscribe(
+    //   (response) => {
+    //     alert(`OpenAI 的回应: ${response}`);
+    //     this.userInput = '';
+    //   },
+    //   (error) => {
+    //     console.error('OpenAI 请求失败:', error);
+    //     // 处理错误情况
+    //   },
+    // );
 
     this.userInput = '';
   }

@@ -216,17 +216,5 @@
       </div>
     </ng-container>
 
-    <button
-      class="toggle-notes-btn"
-      [title]="!(isRouteWithAdditionalInfoPanel$|async) ? (T.MH.NOTES_PANEL_INFO|translate) : ''"
-      [disabled]="!(isRouteWithAdditionalInfoPanel$|async)"
-      [class.isActive]="(layoutService.isShowNotes$|async)"
-      [class.isRouteWithRightPanel]="(isRouteWithSplitAddtionalInfoPanel$|async)"
-      (click)="layoutService.toggleNotes()"
-      mat-icon-button
-      [matTooltip]="T.MH.TOGGLE_SHOW_NOTES|translate"
-    >
-      <mat-icon class="note-ico">comment</mat-icon>
-    </button>
   </nav>
 </div>

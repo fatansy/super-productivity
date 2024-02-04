@@ -5,9 +5,17 @@ import { UiModule } from '../../ui/ui.module';
 import { RouterModule } from '@angular/router';
 import { DragulaModule } from 'ng2-dragula';
 import { WorkContextMenuModule } from '../work-context-menu/work-context-menu.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [UiModule, CommonModule, RouterModule, DragulaModule, WorkContextMenuModule],
+  imports: [
+    UiModule,
+    CommonModule,
+    RouterModule,
+    DragulaModule,
+    WorkContextMenuModule,
+    FormsModule,
+  ],
   declarations: [SideNavComponent],
   exports: [SideNavComponent],
 })

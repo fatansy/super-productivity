@@ -34,6 +34,7 @@ import { TourId } from '../../features/shepherd/shepherd-steps.const';
 import { ShepherdService } from '../../features/shepherd/shepherd.service';
 import { getGithubErrorUrl } from 'src/app/core/error-handler/global-error-handler.util';
 import { IS_MOUSE_PRIMARY } from '../../util/is-mouse-primary';
+import { OpenaiService } from '../../openai.service';
 
 @Component({
   selector: 'side-nav',
@@ -95,6 +96,7 @@ export class SideNavComponent implements OnDestroy {
     private readonly _taskService: TaskService,
     private readonly _dragulaService: DragulaService,
     private readonly _shepherdService: ShepherdService,
+    private readonly _openaiService: OpenaiService,
   ) {
     this._dragulaService.createGroup(this.PROJECTS_SIDE_NAV, {
       direction: 'vertical',
@@ -275,5 +277,21 @@ export class SideNavComponent implements OnDestroy {
       this._cachedIssueUrl = getGithubErrorUrl('', undefined, true);
     }
     return this._cachedIssueUrl;
+  }
+
+  userInput: string = '';
+  openPrompt(): void {
+    this._openaiService.sendTextToOpenai(this.userInput).subscribe(
+      (response) => {
+        alert(`OpenAI 的回应: ${response}`);
+        this.userInput = '';
+      },
+      (error) => {
+        console.error('OpenAI 请求失败:', error);
+        // 处理错误情况
+      },
+    );
+
+    this.userInput = '';
   }
 }

@@ -247,6 +247,24 @@
 </section>
 
 <section class="app">
+  <mat-form-field
+    appearance="fill"
+    class="user-input"
+  >
+    <mat-label>点击输入</mat-label>
+    <input
+      matInput
+      [(ngModel)]="userInput"
+      (keyup.enter)="openPrompt()"
+    />
+    <button
+      mat-button
+      matSuffix
+      (click)="openPrompt()"
+    >
+      <mat-icon>send</mat-icon>
+    </button>
+  </mat-form-field>
   <button
     #menuEntry
     [mat-menu-trigger-for]="helpMenu"

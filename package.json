@@ -37,12 +37,6 @@
     "GitHub",
     "Time Tracking"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run lint",
-      "pre-push": "npm run lint && npm run test"
-    }
-  },
   "scripts": {
     "ng": "ng",
     "start": "npm run electron:build && cross-env NODE_ENV=DEV electron .",

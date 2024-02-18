@@ -89,8 +89,6 @@ export class SideNavComponent implements OnDestroy {
   private _subs: Subscription = new Subscription();
   private _cachedIssueUrl?: string;
 
-  assistantMessage: string = '你好，我是AI助手！';
-
   constructor(
     public readonly tagService: TagService,
     public readonly projectService: ProjectService,
@@ -285,7 +283,6 @@ export class SideNavComponent implements OnDestroy {
 
   userInput: string = '';
   openPrompt(): void {
-    this.assistantMessage = this.userInput;
     // this._openaiService.sendTextToOpenai(this.userInput).subscribe(
     //   (response) => {
     //     alert(`OpenAI 的回应: ${response}`);

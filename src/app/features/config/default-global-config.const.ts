@@ -43,7 +43,8 @@ export const DEFAULT_GLOBAL_CONFIG: GlobalConfigState = {
     /* eslint-disable-next-line */
     takeABreakMessage:
       'You have been working for ${duration} without one. Go away from the computer! Take a short walk! Makes you more productive in the long run!',
-    takeABreakMinWorkingTime: 60 * minute,
+    /* 1小时休息改为10小时休息 */
+    takeABreakMinWorkingTime: 600 * minute,
     takeABreakSnoozeTime: 15 * minute,
     motivationalImgs: [],
   },

@@ -73,13 +73,13 @@ export class TrackingReminderService {
   ) {}
 
   init(): void {
-    this.remindCounter$.subscribe((count) => {
-      this._triggerBanner(count);
-    });
+    // this.remindCounter$.subscribe((count) => {
+    //   this._triggerBanner(count);
+    // });
 
-    this._hideTrigger$.subscribe((v) => {
-      this._hideBanner();
-    });
+    // this._hideTrigger$.subscribe((v) => {
+    //   this._hideBanner();
+    // });
   }
 
   private _hideBanner(): void {

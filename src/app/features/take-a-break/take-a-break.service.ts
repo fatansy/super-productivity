@@ -300,7 +300,7 @@ export class TakeABreakService {
   }
 
   resetTimer(): void {
-    this._triggerManualReset$.next(0);
+    //this._triggerManualReset$.next(0);
   }
 
   resetTimerAndCountAsBreak(): void {

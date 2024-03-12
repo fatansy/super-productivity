@@ -35,7 +35,7 @@ export const DEFAULT_GLOBAL_CONFIG: GlobalConfigState = {
     isUnTrackedIdleResetsBreakTimer: true,
   },
   takeABreak: {
-    isTakeABreakEnabled: true,
+    isTakeABreakEnabled: false,
     isLockScreen: false,
     isTimedFullScreenBlocker: false,
     timedFullScreenBlockerDuration: 8000,

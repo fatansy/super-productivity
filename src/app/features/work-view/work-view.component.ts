@@ -88,7 +88,7 @@ export class WorkViewComponent implements OnInit, OnDestroy, AfterContentInit {
 
   constructor(
     public taskService: TaskService,
-    //public takeABreakService: TakeABreakService,
+    public takeABreakService: TakeABreakService,
     public planningModeService: PlanningModeService,
     public improvementService: ImprovementService,
     public layoutService: LayoutService,
@@ -194,6 +194,6 @@ export class WorkViewComponent implements OnInit, OnDestroy, AfterContentInit {
   }
 
   resetBreakTimer(): void {
-    //this.takeABreakService.resetTimer();
+    this.takeABreakService.resetTimer();
   }
 }
